@@ -59,8 +59,6 @@ src/
 - QR generation for Spend (MOCK)
 - Environment toggle via `extra.flexaEnv`
 
-> A short Loom demo accompanies the grant application.
-
 ---
 
 ## 🔜 Next (toward LIVE)
