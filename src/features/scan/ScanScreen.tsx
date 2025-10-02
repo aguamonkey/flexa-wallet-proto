@@ -15,8 +15,8 @@ export default function ScanScreen() {
   if (!permission) return <Text>Requesting camera permission…</Text>;
   if (!permission.granted) return <Text>Camera permission denied</Text>;
 
-  // Simulator note
-  if (Platform.OS === 'ios' && !navigator?.mediaDevices) {
+  // iOS Simulator has no camera; show a friendly note.
+  if (Platform.OS === 'ios' && !(global as any).navigator?.mediaDevices) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 }}>
         <Text>Camera not available in iOS Simulator.</Text>
@@ -38,7 +38,10 @@ export default function ScanScreen() {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 }}>
           <Text style={{ fontSize: 16, marginBottom: 8 }}>MOCK Scan Result</Text>
           <Text style={{ textAlign: 'center' }}>{data}</Text>
-          <Pressable onPress={() => setData(null)} style={{ marginTop: 16, padding: 10, borderWidth: 1, borderRadius: 8 }}>
+          <Pressable
+            onPress={() => setData(null)}
+            style={{ marginTop: 16, padding: 10, borderWidth: 1, borderRadius: 8 }}
+          >
             <Text>Scan again</Text>
           </Pressable>
         </View>

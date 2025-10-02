@@ -29,7 +29,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "extra": {
+      "flexaEnv": "mock"
+    },
     "plugins": [
+      "expo-camera"
     ]
   }
 }
