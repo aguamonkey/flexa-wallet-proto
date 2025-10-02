@@ -11,22 +11,22 @@ Primary KPI: **clone → first test payment in < 60 minutes** for a new develope
 
 ## 🚀 Quickstart
 
-\`\`\`bash
+```bash
 npm install
 npx expo start          # press i (iOS) / a (Android) or open in Expo Go on your phone
-\`\`\`
+```
 
-- **Scan (MOCK)** uses \`expo-camera\` — works on a physical device (Expo Go). iOS Simulator has no real camera.
+- **Scan (MOCK)** uses `expo-camera` — works on a physical device (Expo Go). iOS Simulator has no real camera.
 - **Spend (MOCK)** shows a QR payload with mock approve/fail.
 
 ---
 
 ## ⚙️ Environment
 
-\`app.json\` → \`expo.extra.flexaEnv = "mock" | "live"\`
+`app.json` → `expo.extra.flexaEnv = "mock" | "live"`
 
-- \`mock\` (default): Local mock logic via the adapter.
-- \`live\`: Will route through **Flexa Components** once credentials/SDK access are configured.
+- `mock` (default): Local mock logic via the adapter.
+- `live`: Will route through **Flexa Components** once credentials/SDK access are configured.
 
 > The switch is centralized so teams can flip environments without touching UI code.
 
@@ -34,7 +34,7 @@ npx expo start          # press i (iOS) / a (Android) or open in Expo Go on your
 
 ## 🧱 Architecture (SOLID-friendly)
 
-\`\`\`
+```
 src/
   features/
     scan/        # ScanScreen.tsx (CameraView + QR)
@@ -44,7 +44,7 @@ src/
       flexaAdapter.ts  # MOCK now; LIVE calls later (Scan/Spend)
   shared/
     env.ts       # Reads expo.extra.flexaEnv
-\`\`\`
+```
 
 - **UI** (features) is thin, calls **services/sdk**.
 - **Adapter** isolates SDK details → easy to replace MOCK with LIVE.
@@ -57,7 +57,7 @@ src/
 - Home screen with **Scan (MOCK)** and **Spend (MOCK)** + Back button
 - Camera permissions + QR scanning (MOCK)
 - QR generation for Spend (MOCK)
-- Environment toggle via \`extra.flexaEnv\`
+- Environment toggle via `extra.flexaEnv`
 
 > A short Loom demo accompanies the grant application.
 
@@ -94,11 +94,11 @@ src/
 
 ## 📝 Scripts
 
-\`\`\`bash
+```bash
 npm run dev      # expo start
 npm run lint     # if configured
 npm run format   # if configured
-\`\`\`
+```
 
 ---
 
@@ -108,6 +108,6 @@ Planned: **MIT** at public v1.0.
 
 ---
 
-## �� Contributing
+## Contributing
 
 Issues and PRs welcome after v1.0. For early access to LIVE integration notes, open an issue or contact the maintainer.
